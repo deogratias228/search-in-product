@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Champ de recherche</title>
+   <style>
+      * {
+         font-family: Poppins;
+         margin: 0;
+         padding: 0;
+         background-color: #ddd;
+      }
+
+      .container-fluid {
+         width: 100%;
+         height: auto;
+         padding: 0px 0px 80px 0px;
+      }
+
+      .container{
+         width: 100vw;
+         height: auto;
+         margin: auto;
+      }
+
+      .container .search {
+         display: flex;
+         padding: 30px 20px;
+         justify-content: space-between;
+      }
+
+      .container .search h3 {
+         letter-spacing: 1px;
+         display: inline-block;
+         border-bottom: 2px solid rgb(109, 15, 15);
+         padding-bottom: 10px;
+      }
+
+      .container .search input {
+         width: 60%;
+         padding: 5px 16px;
+         background: transparent;
+         border: 1px solid #000;
+         font-size: 15px;
+         text-transform: capitalize;
+         letter-spacing: 2px;
+      }
+      .container .search input::placeholder {
+         color: rgb(109, 15, 15);
+         font-weight: 600;
+         outline: none;
+      }
+      .container .product-list {
+         display: flex;
+         justify-content: space-evenly;
+         flex-wrap: wrap;
+         flex-direction: row-reverse;
+         width: 100vw;
+         text-align: left;
+      }
+
+      .container .product-list .product {
+         margin-top: 30px;
+         text-align: center;
+      }
+
+      .container .product-list .product h2 {
+         color: rgb(109, 15, 15);
+         letter-spacing: 1px;
+      }
+
+      .container .product-list .product h3 {
+         text-transform: capitalize;
+      }
+
+      .product img {
+         max-width: 200px;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container-fluid">
+      <div class="container">
+         <div class="search">
+            <h3>Tous les produits</h3>
+            <input type="search" name="search" id="find" placeholder="your search here..." onkeyup="search()">
+         </div>
+
+         <div class="product-list">
+            <div class="product">
+               <img src="/img/1.jpg" alt="">
+               <h3>La Crypto</h3>
+               <h2>150£ - <del>800£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/2.jpg" alt="">
+               <h3>Comment ça marche</h3>
+               <h2>150£ - <del>900£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/3.jpg" alt="">
+               <h3>Des exemples</h3>
+               <h2>0£ - <del>50£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/4.jpg" alt="">
+               <h3>Leurs avantages</h3>
+               <h2>0£ - <del>150£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/5.jpg" alt="">
+               <h3>Airdrop, c'est quoi?</h3>
+               <h2>0£ - <del>150£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/6.jpg" alt="">
+               <h3>Airdrop: avantages</h3>
+               <h2>120£ - <del>750£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/7.jpg" alt="">
+               <h3>Pourquoi les airdrops</h3>
+               <h2>150£ - <del>800£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/1.jpg" alt="">
+               <h3>Crypto : c'est quoi?</h3>
+               <h2>150£ - <del>800£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/2.jpg" alt="">
+               <h3>Comment ?</h3>
+               <h2>150£ - <del>900£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/3.jpg" alt="">
+               <h3>Exemples</h3>
+               <h2>0£ - <del>50£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/4.jpg" alt="">
+               <h3>Leurs avantages</h3>
+               <h2>0£ - <del>150£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/5.jpg" alt="">
+               <h3>Airdrop, c'est quoi?</h3>
+               <h2>0£ - <del>150£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/6.jpg" alt="">
+               <h3>Airdrop: avantages</h3>
+               <h2>120£ - <del>750£</del></h2>
+            </div>
+            <div class="product">
+               <img src="/img/7.jpg" alt="">
+               <h3>Pourquoi les airdrops</h3>
+               <h2>150£ - <del>800£</del></h2>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script type="text/javascript">
+      function search() {
+         let filter = document.getElementById('find').value.toUpperCase();
+
+         let item = document.querySelectorAll('.product');
+         for(var i = 0; i<=item.length;  i++) {
+            let a = item[i].getElementsByTagName('h3')[0];
+
+            let value = a.innerHTML || a.innerText || a.textContent;
+
+            if(value.toUpperCase().indexOf(filter) > -1) {
+               item[i].style.display = '';
+            } else {
+               item[i].style.display = 'none'
+            }
+         }
+      }
+   </script>
+
+</body>
+
+</html>
